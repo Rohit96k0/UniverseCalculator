@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Universe Calculator — 200+ Calculators</title>
+    <meta name="description"
+        content="Universe Calculator — The most powerful, all-in-one calculator platform with 200+ tools for Finance, Health, Math, Science and more.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== COSMIC BACKGROUND ===== -->
+    <div class="cosmic-bg">
+        <canvas id="star-canvas"></canvas>
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+        <div class="cosmic-grid"></div>
+        <!-- Light Mode Elements -->
+        <div class="sun"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+        <div class="trees"></div>
+    </div>
+
+    <!-- ===== FLOATING MATH SYMBOLS ===== -->
+    <div class="floating-symbols" id="floating-symbols"></div>
+
+    <!-- ===== MOBILE HEADER ===== -->
+    <header class="mobile-header" id="mobile-header">
+        <button class="hamburger" id="hamburger-btn">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-logo">
+            <svg viewBox="0 0 80 80" class="cosmic-logo-svg small-logo" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="36" stroke="url(#logoGrad1)" stroke-width="2" class="orbit-outer" />
+                <circle cx="40" cy="40" r="28" stroke="url(#logoGrad2)" stroke-width="1.5" stroke-dasharray="6 4"
+                    class="orbit-middle" />
+                <circle cx="40" cy="4" r="3" fill="#06b6d4" class="planet-dot-1" />
+                <circle cx="68" cy="40" r="2" fill="#8b5cf6" class="planet-dot-2" />
+                <g class="core-math">
+                    <circle cx="40" cy="40" r="16" fill="rgba(139, 92, 246, 0.15)" stroke="url(#logoGrad1)"
+                        stroke-width="1.5" />
+                    <text x="40" y="47" text-anchor="middle" font-size="20" font-weight="900"
+                        font-family="'Outfit', sans-serif" fill="#fff" class="core-symbol">∑</text>
+                </g>
+            </svg>
+            <span>Universe Calc</span>
+        </div>
+        <button class="mobile-search-btn" id="mobile-search-btn">
+            <i data-lucide="search"></i>
+        </button>
+        <button class="theme-toggle-btn mobile-theme-btn" id="mobile-theme-toggle" title="Toggle Theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </header>
+
+    <!-- ===== SIDEBAR OVERLAY ===== -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ===== APP SHELL ===== -->
+    <div class="app-shell">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 80 80" class="cosmic-logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="36" stroke="url(#logoGrad1)" stroke-width="2" class="orbit-outer" />
+                        <circle cx="40" cy="40" r="28" stroke="url(#logoGrad2)" stroke-width="1.5"
+                            stroke-dasharray="6 4" class="orbit-middle" />
+                        <circle cx="40" cy="4" r="3" fill="#06b6d4" class="planet-dot-1" />
+                        <circle cx="68" cy="40" r="2" fill="#8b5cf6" class="planet-dot-2" />
+                        <g class="core-math">
+                            <circle cx="40" cy="40" r="16" fill="rgba(139, 92, 246, 0.15)" stroke="url(#logoGrad1)"
+                                stroke-width="1.5" />
+                            <text x="40" y="47" text-anchor="middle" font-size="20" font-weight="900"
+                                font-family="'Outfit', sans-serif" fill="#fff" class="core-symbol">∑</text>
+                        </g>
+                        <defs>
+                            <linearGradient id="logoGrad1" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#8b5cf6" />
+                                <stop offset="50%" stop-color="#d946ef" />
+                                <stop offset="100%" stop-color="#06b6d4" />
+                            </linearGradient>
+                            <linearGradient id="logoGrad2" x1="80" y1="0" x2="0" y2="80" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#06b6d4" />
+                                <stop offset="100%" stop-color="#f59e0b" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>Universe</h1>
+                    <span>Calculator</span>
+                </div>
+                <button class="sidebar-close" id="sidebar-close">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <!-- Search (desktop in sidebar) -->
+            <div class="sidebar-search">
+                <i data-lucide="search"></i>
+                <input type="text" id="search-input" placeholder="Search 200+ calculators...">
+            </div>
+
+            <nav class="sidebar-nav" id="sidebar-nav">
+                <!-- Injected by JS -->
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="stat-badge">
+                    <i data-lucide="calculator"></i>
+                    <span>200+ Calculators</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content" id="main-content">
+
+            <!-- Desktop Topbar -->
+            <div class="topbar">
+                <div class="topbar-search glowing-search">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="search-input-top" placeholder="Search 200+ calculators...">
+                    <span class="search-shortcut">⌘K</span>
+                </div>
+                <div class="topbar-right">
+                    <div class="live-clock" id="live-clock"></div>
+                    <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Theme">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-label">Dark</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- HERO SECTION -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <div class="pulse-dot"></div>
+                        <span>200+ Calculators Available</span>
+                    </div>
+                    <h2 class="hero-title">
+                        Calculate <span class="gradient-text">Anything</span> in the
+                        <span class="gradient-text-2">Universe</span>
+                    </h2>
+                    <p class="hero-sub">From finance to physics, health to engineering — your all-in-one cosmic
+                        calculator hub.</p>
+                </div>
+
+                <!-- Mini Calculator Widget -->
+                <div class="calc-widget">
+                    <div class="calc-widget-glow"></div>
+                    <div class="calc-screen">
+                        <div class="calc-history" id="calc-history">∫(3x²+5x)dx = x³ + ⁵⁄₂x² + C</div>
+                        <div class="calc-display" id="calc-display">0</div>
+                    </div>
+                    <div class="calc-keys">
+                        <!-- Row 1 -->
+                        <button class="key key-sci" data-action="fn" data-val="Math.sin(Math.PI/180*">sin</button>
+                        <button class="key key-sci" data-action="fn" data-val="Math.cos(Math.PI/180*">cos</button>
+                        <button class="key key-sci" data-action="fn" data-val="Math.tan(Math.PI/180*">tan</button>
+                        <button class="key key-sci" data-action="fn" data-val="Math.sqrt(">√</button>
+                        <button class="key key-clear" data-action="clear">AC</button>
+
+                        <!-- Row 2 -->
+                        <button class="key key-sci" data-action="fn" data-val="Math.PI">π</button>
+                        <button class="key key-num" data-action="num" data-val="7">7</button>
+                        <button class="key key-num" data-action="num" data-val="8">8</button>
+                        <button class="key key-num" data-action="num" data-val="9">9</button>
+                        <button class="key key-op" data-action="op" data-val="/">/</button>
+
+                        <!-- Row 3 -->
+                        <button class="key key-sci" data-action="del">⌫</button>
+                        <button class="key key-num" data-action="num" data-val="4">4</button>
+                        <button class="key key-num" data-action="num" data-val="5">5</button>
+                        <button class="key key-num" data-action="num" data-val="6">6</button>
+                        <button class="key key-op" data-action="op" data-val="*">×</button>
+
+                        <!-- Row 4 -->
+                        <button class="key key-sci" data-action="pct">%</button>
+                        <button class="key key-num" data-action="num" data-val="1">1</button>
+                        <button class="key key-num" data-action="num" data-val="2">2</button>
+                        <button class="key key-num" data-action="num" data-val="3">3</button>
+                        <button class="key key-op" data-action="op" data-val="-">−</button>
+
+                        <!-- Row 5 -->
+                        <button class="key key-sci" data-action="fn" data-val="(">( )</button>
+                        <button class="key key-num" data-action="num" data-val="0">0</button>
+                        <button class="key key-num" data-action="num" data-val=".">.</button>
+                        <button class="key key-op" data-action="op" data-val="+">+</button>
+                        <button class="key key-equals" data-action="equals">=</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- STATS BAR -->
+            <div class="stats-bar">
+                <div class="stat-item"><i data-lucide="zap"></i><span><strong>200+</strong> Calculators</span></div>
+                <div class="stat-item"><i data-lucide="layers"></i><span><strong>21</strong> Categories</span></div>
+                <div class="stat-item"><i data-lucide="globe"></i><span><strong>All</strong> Devices</span></div>
+                <div class="stat-item"><i data-lucide="shield-check"></i><span><strong>100%</strong> Free</span></div>
+            </div>
+
+            <!-- CALCULATOR GRID -->
+            <div class="calculators-container" id="calculators-container"></div>
+
+            <!-- ===== FOOTER ===== -->
+            <footer class="app-footer">
+                <div class="footer-left">
+                    <svg viewBox="0 0 80 80" class="footer-logo-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="36" stroke="url(#logoGrad1)" stroke-width="2" class="orbit-outer" />
+                        <circle cx="40" cy="40" r="28" stroke="url(#logoGrad2)" stroke-width="1.5"
+                            stroke-dasharray="6 4" class="orbit-middle" />
+                        <circle cx="40" cy="4" r="3" fill="#06b6d4" class="planet-dot-1" />
+                        <circle cx="68" cy="40" r="2" fill="#8b5cf6" class="planet-dot-2" />
+                        <g class="core-math">
+                            <circle cx="40" cy="40" r="16" fill="rgba(139, 92, 246, 0.15)" stroke="url(#logoGrad1)"
+                                stroke-width="1.5" />
+                            <text x="40" y="47" text-anchor="middle" font-size="20" font-weight="900"
+                                font-family="'Outfit', sans-serif" fill="#fff" class="core-symbol">∑</text>
+                        </g>
+                    </svg>
+                    <span class="footer-brand">Universe Calculator</span>
+                </div>
+                <div class="footer-right">
+                    <span>© 2026 Universe Calculator. Engineered with cosmic precision. Designed by <a
+                            href="https://fxstar96k.netlify.app" target="_blank" rel="noopener noreferrer"
+                            class="designer-link"><strong class="designer-name">fxstar96k</strong></a></span>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- ===== MODAL ===== -->
+    <div id="calc-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <div class="modal-icon-wrap"><i data-lucide="calculator" id="modal-icon"></i></div>
+                    <h2 id="modal-title">Calculator</h2>
+                </div>
+                <button id="close-modal" class="modal-close"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button id="calc-btn" class="btn-calculate">
+                    <i data-lucide="zap"></i> Calculate
+                </button>
+            </div>
+            <div id="modal-result" class="result-box hidden">
+                <div class="result-label">Result</div>
+                <div id="result-value" class="result-value">--</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calc_engine.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
